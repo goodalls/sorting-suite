@@ -1,0 +1,17 @@
+{
+  "name": "sorting-suite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./js/index.js",
+  "directories": {
+    "test": "./test/"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Jeff Goodall",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}
