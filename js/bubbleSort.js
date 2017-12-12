@@ -8,15 +8,13 @@ function bubbleSort (array) {
         [ array[i], array[i+ 1] ] = [array[i+1], array[i]];
         swaps++;
       }
-      if (swaps === 0){
+     
+    }
+     if (swaps === 0){
         break;
       }
-    }
-    
   }
   return array;
 }
-
-//currently runs more times through the loop then necissary so it is a bit extenus use of resources
 
 module.exports = bubbleSort;
