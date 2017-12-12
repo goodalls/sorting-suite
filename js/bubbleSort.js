@@ -10,9 +10,9 @@ function bubbleSort (array) {
       }
      
     }
-     if (swaps === 0){
-        break;
-      }
+    if (swaps === 0){
+      break;
+    }
   }
   return array;
 }

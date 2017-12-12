@@ -25,6 +25,8 @@ describe('bubbleSort testing', ()=> {
   it('should sort from smallest to largest for big array', ()=> {
     let t = 40;
     let arr = [];
+
+    //generate array
     for (var i=0; i<t; i++) {
       let random = Math.round(Math.random() * t);
       if (!arr.includes(random)) {
@@ -34,10 +36,43 @@ describe('bubbleSort testing', ()=> {
       }
     }
     
+    var max = arr.reduce(function(a, b) {
+      return Math.max(a, b);
+    });
+    var min = arr.reduce(function(a, b) {
+      return Math.min(a, b);
+    });
+
+    //could give false positive if random is placed in index position
+    assert.equal(arr[0] === min, false);
+    assert.equal(arr[arr.length-1] === max, false);
+
+    //sort array
     bubbleSort(arr);
-    //need a loop or something to test each index for lower number.
+
+
+    assert.equal(arr[0] === min, true);
+    assert.equal(arr[arr.length-1] === max, true);
     assert.equal(arr[0] <= arr[1], true);
     
+  });
+
+  it('should be able to do a lot of sorting in two seconds', ()=> {
+
+    let t = 13500;
+    let timeOutArray = [];
+
+    //generate array
+    for (var i=0; i<t; i++) {
+      let random = Math.round(Math.random() * t);
+      if (!timeOutArray.includes(random)) {
+        timeOutArray.push(random);
+      }else{
+        t++;
+      }
+    }
+
+    bubbleSort(timeOutArray);
   });
 
 });
