@@ -1,6 +1,31 @@
 function mergeSort(array) {
-// two functions one to seperate the array and it recursivly calls the second function to merge them back together. 
-//the return on the first function should be something like
-// return mergeSort(buildFunction(arrayLeft, arrayRight), buildFunction(arrayLeft, arrayRight) ) 
-  
+  var middle = Math.floor(array.length/2);
+  var left = array.slice(0, middle);
+  var right = array.slice(middle);
+  if(array.length === 1){
+    return array;
+  }
+  return merge(mergeSort(left),mergeSort(right));
 }
+
+function merge(left, right) {
+  let mergeArray = [];
+  while( left.length && right.length ) {
+    if ( left[0] < right[0] ) {
+      mergeArray.push(left.shift());
+    }else{
+      mergeArray.push(right.shift());
+    }
+  }
+  while( right.length ) {
+    mergeArray.push(right.shift());
+  }
+  while( left.length ) {
+    mergeArray.push(left.shift());
+  }
+ 
+  return mergeArray;
+}
+
+
+module.exports = mergeSort;

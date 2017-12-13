@@ -22,6 +22,10 @@ describe('bubbleSort testing', ()=> {
     assert.equal(arr.length, 40 );
   });
 
+  it('should be able to sort negative numbers', ()=> {
+    assert.deepEqual(bubbleSort([5, -1, 2, 0, -3, 3]), [-3, -1, 0, 2, 3, 5]);
+  });
+
   it('should sort from smallest to largest for big array', ()=> {
     let t = 40;
     let arr = [];
@@ -57,7 +61,7 @@ describe('bubbleSort testing', ()=> {
     
   });
 
-  it('should be able to do a lot of sorting in two seconds', ()=> {
+  it('should be able to do a lot of sorting (13,500) in two seconds', ()=> {
 
     let t = 13500;
     let timeOutArray = [];
