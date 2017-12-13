@@ -20,7 +20,8 @@ function quickSort(array) {
   }
   
 
-  return [...quickSort(low), pivot, ...quickSort(high)]; 
+  // return [...quickSort(low), pivot, ...quickSort(high)]; 
+  return quickSort(low).concat(pivot, quickSort(high));
 }
 
 

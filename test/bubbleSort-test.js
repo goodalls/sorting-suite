@@ -1,6 +1,6 @@
 const {assert, expect} = require('chai').use(require('chai-sorted'));
 const bubbleSort = require('../js/bubbleSort.js');
-
+const numberGenerator = require ('../js/testHelp.js').numberGenerator;
 
 describe('bubbleSort testing', ()=> {
 
@@ -13,10 +13,8 @@ describe('bubbleSort testing', ()=> {
   });
 
   it('should be same length after sort', ()=> {
-    var arr = [];
-    for (var i=0, t=40; i<t; i++) {
-      arr.push(Math.round(Math.random() * t));
-    }
+    let arr = numberGenerator(40);
+
     assert.equal(arr.length, 40 );
     bubbleSort(arr);
     assert.equal(arr.length, 40 );
@@ -33,37 +31,15 @@ describe('bubbleSort testing', ()=> {
   });
 
   it('should sort from smallest to largest for big array', ()=> {
-    let t = 40;
-    let arr = [];
-
-    //generate array
-    for (var i=0; i<t; i++) {
-      let random = Math.round(Math.random() * t);
-      if (!arr.includes(random)) {
-        arr.push(random);
-      }else{
-        t++;
-      }
-    }
+    let arr = numberGenerator(40);
     expect(arr).to.not.be.sorted();
     
     expect(bubbleSort(arr)).to.be.sorted();
   });
 
-  it('should be able to do a lot of sorting (13,500) in two seconds', ()=> {
-
-    let t = 13500;
-    let timeOutArray = [];
-
-    //generate array
-    for (var i=0; i<t; i++) {
-      let random = Math.round(Math.random() * t);
-      if (!timeOutArray.includes(random)) {
-        timeOutArray.push(random);
-      }else{
-        t++;
-      }
-    }
+  it('should be able to do a lot of sorting (11,000) in two seconds', ()=> {
+    let timeOutArray = numberGenerator(11000);
+    
     expect(timeOutArray).to.not.be.sorted();
     expect(bubbleSort(timeOutArray)).to.be.sorted();
   });

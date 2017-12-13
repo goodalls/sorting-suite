@@ -1,6 +1,6 @@
 const {assert, expect} = require('chai').use(require('chai-sorted'));
 const quickSort = require('../js/quickSort.js');
-
+const numberGenerator = require ('../js/testHelp.js').numberGenerator;
 
 describe('quickSort testing', ()=> {
 
@@ -13,10 +13,8 @@ describe('quickSort testing', ()=> {
   });
 
   it('should be same length after sort', ()=> {
-    var arr = [];
-    for (var i=0, t=40; i<t; i++) {
-      arr.push(Math.round(Math.random() * t));
-    }
+    let arr = numberGenerator(40);
+
     assert.equal(arr.length, 40 );
     quickSort(arr);
     assert.equal(arr.length, 40 );
@@ -33,37 +31,15 @@ describe('quickSort testing', ()=> {
   });
 
   it('should sort from smallest to largest for big array', ()=> {
-    let t = 40;
-    let arr = [];
-
-    //generate array
-    for (var i=0; i<t; i++) {
-      let random = Math.round(Math.random() * t);
-      if (!arr.includes(random)) {
-        arr.push(random);
-      }else{
-        t++;
-      }
-    }
+    let arr = numberGenerator(40);
     expect(arr).to.not.be.sorted();
     
     expect(quickSort(arr)).to.be.sorted();
   });
 
   it('should be able to do a lot of sorting (46,000) in two seconds', ()=> {
-
-    let t = 46000;
-    let timeOutArray = [];
-
-    //generate array
-    for (var i=0; i<t; i++) {
-      let random = Math.round(Math.random() * t);
-      if (!timeOutArray.includes(random)) {
-        timeOutArray.push(random);
-      }else{
-        t++;
-      }
-    }
+    let timeOutArray = numberGenerator(46000);
+    
     expect(timeOutArray).to.not.be.sorted();
     expect(quickSort(timeOutArray)).to.be.sorted();
   });
