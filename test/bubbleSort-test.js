@@ -26,6 +26,12 @@ describe('bubbleSort testing', ()=> {
     assert.deepEqual(bubbleSort([5, -1, 2, 0, -3, 3]), [-3, -1, 0, 2, 3, 5]);
   });
 
+  it('should be able to sort letters', () => {
+    var array = ['d','g','h','w','g','w','g','p','q','l','a','g','x','z','d']; 
+    expect(array).to.not.be.sorted();
+    expect(bubbleSort(array)).to.be.sorted();
+  });
+
   it('should sort from smallest to largest for big array', ()=> {
     let t = 40;
     let arr = [];
@@ -40,8 +46,8 @@ describe('bubbleSort testing', ()=> {
       }
     }
     expect(arr).to.not.be.sorted();
-    bubbleSort(arr);
-    expect(arr).to.be.sorted();
+    
+    expect(bubbleSort(arr)).to.be.sorted();
   });
 
   it('should be able to do a lot of sorting (13,500) in two seconds', ()=> {
@@ -58,8 +64,8 @@ describe('bubbleSort testing', ()=> {
         t++;
       }
     }
-
-    bubbleSort(timeOutArray);
+    expect(timeOutArray).to.not.be.sorted();
+    expect(bubbleSort(timeOutArray)).to.be.sorted();
   });
 
 });

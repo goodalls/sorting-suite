@@ -26,6 +26,12 @@ describe('quickSort testing', ()=> {
     assert.deepEqual(quickSort([5, -1, 2, 0, -3, 3]), [-3, -1, 0, 2, 3, 5]);
   });
 
+  it('should be able to sort letters', () => {
+    var array = ['d','g','h','w','g','w','g','p','q','l','a','g','x','z','d']; 
+    expect(array).to.not.be.sorted();
+    expect(quickSort(array)).to.be.sorted();
+  });
+
   it('should sort from smallest to largest for big array', ()=> {
     let t = 40;
     let arr = [];
@@ -40,15 +46,13 @@ describe('quickSort testing', ()=> {
       }
     }
     expect(arr).to.not.be.sorted();
-    console.log(arr);
-    quickSort(arr);
-    console.log(arr);
-    expect(arr).to.be.sorted();
+    
+    expect(quickSort(arr)).to.be.sorted();
   });
 
-  it('should be able to do a lot of sorting (13,500) in two seconds', ()=> {
+  it('should be able to do a lot of sorting (46,000) in two seconds', ()=> {
 
-    let t = 13500;
+    let t = 46000;
     let timeOutArray = [];
 
     //generate array
@@ -60,8 +64,8 @@ describe('quickSort testing', ()=> {
         t++;
       }
     }
-
-    quickSort(timeOutArray);
+    expect(timeOutArray).to.not.be.sorted();
+    expect(quickSort(timeOutArray)).to.be.sorted();
   });
 
 });
