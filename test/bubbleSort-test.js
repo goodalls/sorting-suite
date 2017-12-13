@@ -1,6 +1,6 @@
-const chai = require('chai');
-const assert = chai.assert;
+const {assert, expect} = require('chai').use(require('chai-sorted'));
 const bubbleSort = require('../js/bubbleSort.js');
+
 
 describe('bubbleSort testing', ()=> {
 
@@ -39,26 +39,9 @@ describe('bubbleSort testing', ()=> {
         t++;
       }
     }
-    
-    var max = arr.reduce(function(a, b) {
-      return Math.max(a, b);
-    });
-    var min = arr.reduce(function(a, b) {
-      return Math.min(a, b);
-    });
-
-    //could give false positive if random is placed in index position
-    assert.equal(arr[0] === min, false);
-    assert.equal(arr[arr.length-1] === max, false);
-
-    //sort array
+    expect(arr).to.not.be.sorted();
     bubbleSort(arr);
-
-
-    assert.equal(arr[0] === min, true);
-    assert.equal(arr[arr.length-1] === max, true);
-    assert.equal(arr[0] <= arr[1], true);
-    
+    expect(arr).to.be.sorted();
   });
 
   it('should be able to do a lot of sorting (13,500) in two seconds', ()=> {

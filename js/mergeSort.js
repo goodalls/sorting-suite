@@ -1,7 +1,7 @@
 function mergeSort(array) {
-  var middle = Math.floor(array.length/2);
-  var left = array.slice(0, middle);
-  var right = array.slice(middle);
+  let middle = Math.floor(array.length/2);
+  let left = array.slice(0, middle);
+  let right = array.slice(middle);
   if(array.length === 1){
     return array;
   }
@@ -11,7 +11,7 @@ function mergeSort(array) {
 function merge(left, right) {
   let mergeArray = [];
   while( left.length && right.length ) {
-    if ( left[0] < right[0] ) {
+    if ( left[0] <= right[0] ) {
       mergeArray.push(left.shift());
     }else{
       mergeArray.push(right.shift());
