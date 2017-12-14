@@ -17,14 +17,8 @@ function merge(left, right) {
       mergeArray.push(right.shift());
     }
   }
-  while( right.length ) {
-    mergeArray.push(right.shift());
-  }
-  while( left.length ) {
-    mergeArray.push(left.shift());
-  }
  
-  return mergeArray;
+  return [...mergeArray, ...right, ...left];
 }
 
 
