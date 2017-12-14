@@ -1,6 +1,4 @@
-// insertion Sort
-
-function insertionSort(array) {
+module.exports = function insertionSort(array) {
   //find number to insert
   for (let i = 1; i < array.length; i++){
     
@@ -10,7 +8,7 @@ function insertionSort(array) {
     }
   }
   return array;  
-}
+};
 
 // function insertionSort(array) {
 //   for (let i=1; i < array.length; i++) {
@@ -24,5 +22,4 @@ function insertionSort(array) {
 //   return array;
 // }
 
-module.exports = insertionSort;
 

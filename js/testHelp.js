@@ -1,6 +1,3 @@
-
-
-
 const numberGenerator = (n) => {
   let numberArray = [];
   for (var i=0; i<n; i++) {

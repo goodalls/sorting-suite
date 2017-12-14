@@ -1,4 +1,4 @@
-function mergeSort(array) {
+module.exports = function mergeSort(array) {
   let middle = Math.floor(array.length/2);
   let left = array.slice(0, middle);
   let right = array.slice(middle);
@@ -6,7 +6,7 @@ function mergeSort(array) {
     return array;
   }
   return merge(mergeSort(left),mergeSort(right));
-}
+};
 
 function merge(left, right) {
   let mergeArray = [];
@@ -21,5 +21,3 @@ function merge(left, right) {
   return [...mergeArray, ...right, ...left];
 }
 
-
-module.exports = mergeSort;

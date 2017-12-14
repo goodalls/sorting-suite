@@ -37,8 +37,8 @@ describe('insertionSort testing', ()=> {
     expect(insertionSort(arr)).to.be.sorted();
   });
 
-  it('should be able to do a lot of sorting (15,500) in two seconds', ()=> {
-    let timeOutArray = numberGenerator(15500);
+  it('should be able to do a lot of sorting (15,000) in two seconds', ()=> {
+    let timeOutArray = numberGenerator(15000);
     
     expect(timeOutArray).to.not.be.sorted();
     expect(insertionSort(timeOutArray)).to.be.sorted();

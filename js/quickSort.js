@@ -1,4 +1,4 @@
-function quickSort(array) {
+module.exports = function quickSort(array) {
   //base case
   if (array.length <= 1) {
     return array;
@@ -19,10 +19,6 @@ function quickSort(array) {
     }
   }
   
-
   // return [...quickSort(low), pivot, ...quickSort(high)]; 
   return quickSort(low).concat(pivot, quickSort(high));
-}
-
-
-module.exports = quickSort;
+};

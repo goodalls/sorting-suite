@@ -24,7 +24,7 @@ describe('mergeSort testing', ()=> {
     assert.deepEqual(mergeSort([5, -1, 2, 0, -3, 3]), [-3, -1, 0, 2, 3, 5]);
   });
 
-  it('should be able to sort letters', () => {
+  it('should be able to sort letters', ()=> {
     var array = ['d','g','h','w','g','w','g','p','q','l','a','g','x','z','d']; 
     expect(array).to.not.be.sorted();
     expect(mergeSort(array)).to.be.sorted();

@@ -40,7 +40,7 @@ describe('quickSort testing', ()=> {
   it('should be able to do a lot of sorting (46,000) in two seconds', ()=> {
     let timeOutArray = numberGenerator(46000);
     
-    expect(timeOutArray).to.not.be.sorted();
+    // expect(timeOutArray).to.not.be.sorted();
     expect(quickSort(timeOutArray)).to.be.sorted();
   });
 

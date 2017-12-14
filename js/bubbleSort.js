@@ -1,4 +1,4 @@
-function bubbleSort (array) {
+module.exports = function bubbleSort (array) {
   for (let j = 0; j < array.length; j++){
     let swaps = 0;
     for (let i= 0; i < array.length - j; i++) {
@@ -15,6 +15,4 @@ function bubbleSort (array) {
     }
   }
   return array;
-}
-
-module.exports = bubbleSort;
+};
